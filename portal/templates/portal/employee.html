@@ -7,6 +7,18 @@
         <hr>
         <a class="btn btn-success" href="{% url 'employee_add' %}">Adicionar</a>
         <table class="table table-striped">
+            <div class="row">
+                    <form method="get">
+                        <div class="col-lg-12">
+                            <div class="input-group">
+                                    <input class="form-control" type="text" name="search" id="search" placeholder="Search">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="submit" id="button-addon1">Search</button>
+                                    </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             <thead>
             <tr>
                 <th>Id</th>
@@ -26,11 +38,11 @@
                 <td>
                     <a class="btn btn-warning" href="{% url 'employee_edit' employee.id %}">Editar</a>
                     <a class="btn btn-danger" href="{% url 'employee_delete' employee.id %}"
-                    onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                       onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
                 </td>
             </tr>
-            {% endfor %}
             </tbody>
+            {% endfor %}
         </table>
     </div>
 </div>

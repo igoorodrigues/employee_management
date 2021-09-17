@@ -7,14 +7,15 @@ from portal.models import Employee
 def home(request):
     return render(request, 'portal/home.html')
 
+
 def employee(request):
     employees = Employee.objects.all()
 
-    context = {
-        'employees': employees
-    }
+    busca = request.GET.get('search')
+    if busca:
+        employees = employees.filter(nome__icontains=busca)
 
-    return render(request, 'portal/employee.html', context=context)
+    return render(request, 'portal/employee.html', {'employees': employees})
 
 
 def employee_add(request):
@@ -30,6 +31,7 @@ def employee_add(request):
     }
 
     return render(request, 'portal/employee_add.html', context=context)
+
 
 def employee_edit(request, employee_pk):
     employee = Employee.objects.get(pk=employee_pk)
@@ -47,6 +49,7 @@ def employee_edit(request, employee_pk):
     }
 
     return render(request, 'portal/employee_edit.html', context=context)
+
 
 def employee_delete(request, employee_pk):
     employee = Employee.objects.get(pk=employee_pk)
