@@ -9,6 +9,6 @@ class EmployeeForm(forms.ModelForm):
 
         widgets = {
             'nome': forms.TextInput(attrs={'class': 'form-control', 'autofocus': ''}),
-            'department': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control'})
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'department': forms.TextInput(attrs={'class': 'form-control'})
         }

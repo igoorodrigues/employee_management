@@ -3,7 +3,7 @@
 {% block content %}
 <div class="card">
     <div class="card-body">
-        <h4>Autores</h4>
+        <h4>Funcionários</h4>
         <hr>
         <a class="btn btn-success" href="{% url 'employee_add' %}">Adicionar</a>
         <table class="table table-striped">
@@ -24,8 +24,9 @@
                 <td>{{ employee.email }}</td>
                 <td>{{ employee.department }}</td>
                 <td>
-                    <a class="btn btn-warning">Editar</a>
-                    <a class="btn btn-danger">Excluir</a>
+                    <a class="btn btn-warning" href="{% url 'employee_edit' employee.id %}">Editar</a>
+                    <a class="btn btn-danger" href="{% url 'employee_delete' employee.id %}"
+                    onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
                 </td>
             </tr>
             {% endfor %}
